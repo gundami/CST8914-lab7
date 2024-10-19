@@ -193,6 +193,12 @@ article p {
   float: right;
 }
 
+    /* outline for interactive elements */
+    a:focus,
+    button:focus,
+    input:focus {
+      outline: 2px solid #006b3a;
+    }
   </style>
 </head>
 
@@ -214,14 +220,6 @@ article p {
       </nav>
     </div>
   </header>
-  <div class="newsletter">
-    <div class="container">
-      <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text">
-      <button type="button" onfocus="getFocus()">Sign up</button></div>
-      
-    </div>
-  </div>
   <main class="container">
     <h2 class="offscreen">Top story</h2>
     <article class="main-story">
@@ -243,7 +241,8 @@ article p {
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
-          <p><a href="#" tabindex="1"><b>Read More</b></a></p>
+          <!-- remove tabindex-->
+          <p><a href="#"><b>Read More</b></a></p>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/bee.jpg?raw=true" alt="A bee on top of a flower" />
         </article>
       </div>
@@ -286,11 +285,14 @@ article p {
     </div>
     
   </main>
-  <!--   stuff can be added here :)
-  <footer>
+  <!-- Move to footer -->
+  <footer class="newsletter">
+      <div class="container">
+        <h3>Like the Funion? Consider joining our newsletter!</h3>
+        <input type="text" placeholder="Enter your email" />
+        <button type="button" onclick="getFocus()">Sign up</button>
+      </div>
   </footer>
-  -->
-  
   <script>
     function getFocus() {
       window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html','mywindow').focus()
